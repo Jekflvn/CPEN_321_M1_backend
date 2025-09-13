@@ -4,9 +4,12 @@ import multer from 'multer';
 import path from 'path';
 
 import { IMAGES_DIR } from './hobbies';
-
 if (!fs.existsSync(IMAGES_DIR)) {
-  fs.mkdirSync(IMAGES_DIR, { recursive: true });
+  try {
+    fs.mkdirSync(IMAGES_DIR, { recursive: true });
+  } catch (error) {
+    console.warn(`Warning: Could not create uploads directory: ${error}`);
+  }
 }
 
 const storage = multer.diskStorage({

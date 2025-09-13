@@ -63,6 +63,11 @@ jobs:
 
             chmod 600 .env
 
+            # Create uploads directory with proper permissions
+            sudo mkdir -p uploads/images
+            sudo chown -R 1001:1001 uploads/
+            sudo chmod -R 755 uploads/
+
             # Use sudo for docker-compose commands
             sudo docker-compose down || true
             sudo docker-compose --env-file .env build
