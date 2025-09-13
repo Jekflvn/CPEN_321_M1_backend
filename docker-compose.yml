@@ -9,7 +9,7 @@ services:
     environment:
       - NODE_ENV=production
       - PORT=${PORT:-3000}
-      - DB_URI=${DB_URI}
+      - MONGODB_URI=${MONGODB_URI}
     volumes:
       # Mount uploads directory to persist uploaded files
       - ./uploads:/app/uploads

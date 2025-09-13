@@ -58,7 +58,7 @@ jobs:
             # Create .env file
             cat > .env << EOF
             PORT=${{ secrets.PORT }}
-            DB_URI=${{ secrets.DB_URI }}
+            MONGODB_URI=${{ secrets.DB_URI }}
             EOF
 
             chmod 600 .env
