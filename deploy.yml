@@ -40,5 +40,4 @@ jobs:
             docker-compose down
             docker-compose --env-file .env build
             docker-compose --env-file .env up -d
-          target: "/home/ubuntu/cpen321-m1-starter-app"
           
