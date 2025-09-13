@@ -6,9 +6,19 @@ import { AxiosError } from 'axios';
 const GRAPHQL_URL = 'https://graphqlpokemon.favware.tech/v8';
 
 const POKEMON_LIST = [
-  'pikachu','charmander','bulbasaur','squirtle','dragonite',
-  'gengar','eevee','snorlax','mewtwo','lucario','gardevoir',
-  'scizor','salamence'
+  'pikachu',
+  'charmander',
+  'bulbasaur',
+  'squirtle',
+  'dragonite',
+  'gengar',
+  'eevee',
+  'snorlax',
+  'mewtwo',
+  'lucario',
+  'gardevoir',
+  'scizor',
+  'salamence',
 ];
 
 let cachedDay = '';
@@ -53,10 +63,10 @@ export async function getPokemonOfTheDay(): Promise<PokemonDTO> {
     }
 
     cachedDay = today;
-    cached = { 
-      species: p.species, 
-      sprite: p.sprite, 
-      types: p.types.map((t: any) => t.name) 
+    cached = {
+      species: p.species,
+      sprite: p.sprite,
+      types: p.types.map((t: any) => t.name),
     };
     return cached;
   } catch (error) {

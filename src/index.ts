@@ -13,7 +13,9 @@ const PORT = Number(process.env.PORT ?? 3000);
 
 // Add request logging middleware
 app.use((req, res, next) => {
-  console.log(`${new Date().toISOString()} - ${req.method} ${req.path} - ${req.ip}`);
+  console.log(
+    `${new Date().toISOString()} - ${req.method} ${req.path} - ${req.ip}`
+  );
   next();
 });
 
@@ -39,7 +41,7 @@ app.use(errorHandler);
   };
   process.on('SIGINT', () => shutdown('SIGINT'));
   process.on('SIGTERM', () => shutdown('SIGTERM'));
-})().catch((err) => {
+})().catch(err => {
   console.error('Failed to start server:', err);
   process.exit(1);
 });

@@ -6,6 +6,8 @@ export async function getDailyPokemon(req: Request, res: Response) {
     const data = await getPokemonOfTheDay();
     return res.json(data);
   } catch (err) {
-    return res.status(502).json({ error: 'Failed to fetch Pokémon of the day' });
+    return res
+      .status(502)
+      .json({ error: 'Failed to fetch Pokémon of the day' });
   }
 }

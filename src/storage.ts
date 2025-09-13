@@ -18,7 +18,9 @@ const storage = multer.diskStorage({
   },
   filename: (req, file, cb) => {
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
-    const safeExt = path.extname(file.originalname).replace(/[^a-zA-Z0-9.]/g, '');
+    const safeExt = path
+      .extname(file.originalname)
+      .replace(/[^a-zA-Z0-9.]/g, '');
     cb(null, `${uniqueSuffix}${safeExt}`);
   },
 });
@@ -31,7 +33,7 @@ const fileFilter = async (
   try {
     const { fileTypeFromFile } = await import('file-type');
     const fileType = await fileTypeFromFile(file.path);
-    
+
     if (!fileType || !fileType.mime.startsWith('image/')) {
       return cb(new Error('Only image files are allowed!'));
     }

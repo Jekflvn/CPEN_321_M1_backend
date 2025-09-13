@@ -9,7 +9,7 @@ export const connectDB = async (): Promise<void> => {
     await mongoose.connect(uri);
     console.log('✅ MongoDB connected successfully');
 
-    mongoose.connection.on('error', (error) => {
+    mongoose.connection.on('error', error => {
       console.error('❌ MongoDB connection error:', error);
     });
 
@@ -28,7 +28,9 @@ export const connectDB = async (): Promise<void> => {
       process.exit(0);
     });
   } catch (error) {
-    throw new Error(`Failed to connect to MongoDB: ${(error as Error).message}`);
+    throw new Error(
+      `Failed to connect to MongoDB: ${(error as Error).message}`
+    );
   }
 };
 
